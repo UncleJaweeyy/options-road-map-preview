@@ -62,6 +62,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .button-outline:hover { background: #1e2c37; border-color: #718475; }
 .member-button { font-size: 13px; gap: 17px; min-height: 43px; padding: 10px 17px; }
 .member-label-mobile { display: none; }
+.button-attention { position: relative; isolation: isolate; overflow: hidden; flex-shrink: 0; background: var(--lime); color: #13201a; border-color: #b4dc7c; box-shadow: 0 4px 18px #b4dc7c18, inset 0 1px 0 #ffffff50; }
+.button-attention:hover { background: #d5f7af; border-color: #d5f7af; box-shadow: 0 6px 24px #b4dc7c30, inset 0 1px 0 #ffffff70; }
+.button-attention > * { position: relative; z-index: 1; }
+.button-attention::before { content: ''; position: absolute; z-index: 0; pointer-events: none; top: -20%; left: 0; width: 38%; height: 140%; background: linear-gradient(90deg, transparent, #ffffff80, transparent); transform: translateX(-200%) skewX(-24deg); animation: button-glare 4.8s ease-in-out infinite; }
+.member-button.button-attention::before { animation-delay: .7s; }
+@keyframes button-glare {
+  0% { transform: translateX(-200%) skewX(-24deg); }
+  28%, 100% { transform: translateX(380%) skewX(-24deg); }
+}
 .icon-button { display: inline-flex; align-items: center; justify-content: center; background: none; border: 1px solid var(--line); border-radius: 5px; width: 40px; height: 40px; }
 .menu-toggle { display: none; }
 .text-link { display: inline-flex; align-items: center; gap: 13px; font-size: 14px; font-weight: 600; border: 0; background: none; padding: 0; color: var(--ink); }
