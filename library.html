@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the Options Road Map learning archive. Find Ken Roberts seminars, commodity options courses, historical audio, and stock market workshops.">
+  <meta name="theme-color" content="#0b1119"><title>Learning Library — Options Road Map</title>
+  <link rel="icon" href="assets/compass.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <script src="courses.js" defer></script><script src="app.js" defer></script>
+</head>
+<body data-page="library">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container header-inner">
+  <a class="brand" href="index.html" aria-label="Options Road Map home"><img src="assets/compass.svg" width="39" height="39" alt=""><span>Options<span class="brand-light">RoadMap</span><sup>™</sup></span></a>
+  <button class="menu-toggle icon-button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav" data-icon="menu"></button>
+  <nav id="main-nav" class="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="library.html" aria-current="page">Learning library</a><a href="index.html#roadmap">The roadmap</a><a href="index.html#about">Our story</a></nav>
+  <a class="button button-outline member-button" href="private.html" aria-label="Member access"><span class="member-label-desktop">Member access</span><span class="member-label-mobile">Access</span><span data-icon="arrow-up-right"></span></a>
+</div></header>
+<main id="main">
+  <section class="library-hero container"><div><a class="breadcrumb" href="index.html">Home <span data-icon="chevron-right"></span> <span>Learning library</span></a><div class="eyebrow">A LITTLE CURIOSITY GOES A LONG WAY</div><h1>Your next chapter<br><em>starts here.</em></h1><p>Explore the original teachings. Find a new perspective.<br>Build your understanding, one collection at a time.</p></div><div class="library-hero-art" aria-hidden="true"><div class="archive-cover cover-back"><span>THE ORIGINAL<br>TEACHINGS</span></div><div class="archive-cover cover-front"><span class="book-brand">Options Road Map</span><span class="cover-compass" data-icon="compass"></span><strong>Knowledge.<br>Perspective.<br>Direction.</strong><small>THE KEN ROBERTS ARCHIVE</small></div><span class="archive-caption">Preserved with purpose.</span></div></section>
+  <section class="library-section container" id="collections">
+    <div class="library-tabs" aria-label="Collection view"><button class="library-tab active" data-view="all" aria-pressed="true">All collections <span id="all-count"></span></button><button class="library-tab" data-view="saved" aria-pressed="false"><span data-icon="bookmark"></span> Saved <span id="saved-count">0</span></button><button class="library-tab" data-view="progress" aria-pressed="false"><span data-icon="clock"></span> In progress</button></div>
+    <div class="library-workspace"><aside class="library-sidebar"><div class="sidebar-heading">EXPLORE BY TOPIC</div><div class="category-list" id="category-filters"></div><div class="sidebar-note"><span data-icon="compass"></span><h3>New here?</h3><p>The Get Going Seminar is a good place to find your bearings.</p><button class="text-link" data-course="get-going">Take a look <span data-icon="arrow-right"></span></button></div><div class="local-note"><span data-icon="info"></span><span>Your saved collections and progress stay in this browser.</span></div></aside>
+      <div class="library-results"><div class="library-toolbar"><label class="search-field"><span data-icon="search"></span><input type="search" id="course-search" placeholder="Search the library…" aria-label="Search collections"><span class="search-key" aria-hidden="true">/</span></label><label class="sort-field"><span class="sr-only">Sort collections</span><select id="course-sort"><option value="recommended">Recommended</option><option value="az">Title: A–Z</option><option value="lessons">Most lessons</option></select><span data-icon="chevron-down"></span></label></div>
+        <div class="results-line"><p id="results-count" aria-live="polite"></p><span class="archive-badge"><i class="status-dot"></i> Original learning archive</span></div>
+        <div class="course-grid library-grid" id="library-courses"></div>
+        <div class="empty-state" id="empty-state" hidden><span data-icon="search"></span><h2>No collections found.</h2><p>Try another keyword or explore a different topic.</p><button class="button button-outline" id="reset-filters">Show all collections <span data-icon="arrow-right"></span></button></div>
+        <div class="archive-note"><span data-icon="info"></span><p>Explore lesson navigation, companion resources, and personal notes in the learning workspace. <a class="inline-link" href="private.html">Open your workspace <span aria-hidden="true">↗</span></a></p></div>
+      </div>
+    </div>
+  </section>
+  <section class="library-help container"><span class="help-icon" data-icon="message-circle"></span><div><h2>A question is a good starting point.</h2><p>Need help finding a resource or accessing the archive? Paco is here to help.</p></div><a class="button button-outline" href="mailto:Paco@OptionsRoadMap.com">Get in touch <span data-icon="arrow-up-right"></span></a></section>
+</main>
+<footer class="site-footer" data-footer></footer><div data-dialogs></div><div class="toast" role="status" aria-live="polite" id="toast"></div>
+<noscript><p class="noscript-note">Enable JavaScript to search the library and browse collection details. Contact <a href="mailto:Paco@OptionsRoadMap.com">Paco@OptionsRoadMap.com</a> for access to the original archive.</p></noscript>
+</body>
+</html>
