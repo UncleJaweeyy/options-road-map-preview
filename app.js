@@ -253,6 +253,7 @@
   nav.addEventListener('click', event => { if (event.target.closest('a')) closeNav(); });
   if (isHome && nav) {
     const navHome = nav.querySelector('a[href="index.html"], a[href="./"], a[href="/"]');
+    const navLibrary = nav.querySelector('a[href="index.html#learning_library"]');
     const navRoadmap = nav.querySelector('a[href="#roadmap"]');
     const navAbout = nav.querySelector('a[href="#about"]');
 
@@ -260,7 +261,7 @@
     function setActiveNav(section) {
       if (section === currentSection) return;
       currentSection = section;
-      const targets = { home: navHome, roadmap: navRoadmap, about: navAbout };
+      const targets = { home: navHome, library: navLibrary, roadmap: navRoadmap, about: navAbout };
       Object.entries(targets).forEach(([key, link]) => {
         if (!link) return;
         if (key === section) link.setAttribute('aria-current', 'page');
@@ -269,6 +270,7 @@
     }
 
     function getActiveSectionFromScroll() {
+      const libraryEl = document.getElementById('learning_library');
       const roadmapEl = document.getElementById('roadmap');
       const aboutEl = document.getElementById('about');
       if (!roadmapEl || !aboutEl) return 'home';
@@ -280,6 +282,7 @@
       const headerOffset = 180;
       if (aboutEl.getBoundingClientRect().top <= headerOffset) return 'about';
       if (roadmapEl.getBoundingClientRect().top <= headerOffset) return 'roadmap';
+      if (libraryEl && libraryEl.getBoundingClientRect().top <= headerOffset) return 'library';
       return 'home';
     }
 
@@ -303,6 +306,7 @@
       if (!link) return;
 
       const href = link.getAttribute('href');
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       if (link === navHome || (link.closest('.brand') && isHome)) {
         event.preventDefault();
         if (window.location.hash) {
@@ -310,6 +314,12 @@
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setActiveNav('home');
+        lockScroll();
+      } else if (link === navLibrary) {
+        event.preventDefault();
+        history.pushState(null, '', href);
+        document.getElementById('learning_library').scrollIntoView({ behavior: 'smooth' });
+        setActiveNav('library');
         lockScroll();
       } else if (href === '#roadmap' || href === 'index.html#roadmap') {
         setActiveNav('roadmap');
@@ -322,7 +332,8 @@
 
     function syncNavFromHash() {
       const hash = window.location.hash;
-      if (hash === '#roadmap') setActiveNav('roadmap');
+      if (hash === '#learning_library') setActiveNav('library');
+      else if (hash === '#roadmap') setActiveNav('roadmap');
       else if (hash === '#about') setActiveNav('about');
       else if (!hash || hash === '#main') setActiveNav(getActiveSectionFromScroll());
     }
